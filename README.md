@@ -2,8 +2,6 @@
 
 Webbasierte Anwendung zur Verwaltung, Historisierung und Visualisierung von Bewerbungsprozessen.
 
-Entwickelt im Rahmen der SRH Beruflichen Rehabilitation (Projektantrag 2026).
-
 ## Funktionsumfang
 
 - Registrierung & Login mit sicherem Passwort-Hashing (`password_hash` / `password_verify`)
@@ -33,7 +31,7 @@ Entwickelt im Rahmen der SRH Beruflichen Rehabilitation (Projektantrag 2026).
 
 ```bash
 # Repository klonen
-git clone https://github.com/<DEIN_USERNAME>/bewerbungs-tracker.git
+git clone https://github.com/marchammann-design/bewerbungs-tracker.git
 cd bewerbungs-tracker
 
 # Container starten
