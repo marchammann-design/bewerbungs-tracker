@@ -1,0 +1,25 @@
+# SQLite-Datenbank (Binärdatei, gehört nie ins Repo)
+/data/*.sqlite
+/data/*.sqlite-journal
+/data/*.sqlite-wal
+/data/*.sqlite-shm
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-Dateien
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker-Volumes
+/data/
+
+# Logs
+*.log
+
+# Environment-Variablen (falls später nötig)
+.env
