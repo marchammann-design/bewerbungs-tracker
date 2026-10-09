@@ -45,7 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h1>Neues Konto erstellen</h1>
 
-        <!-- Platzhalter für Fehler- oder Erfolgsmeldungen -->
+        <!-- htmlspecialchars wandelt sonderzeichen in HTML-Entities um
+         damit sie als sichere Inhalte angezeigt werden und nicht als code 
+         ausgeführt werden können, Schutz vor XSS (Cross-Site-Scripting) -->
     <div id="messages">
         <?php if (!empty($errors)): ?>
             <ul style="color: red; background: #ffe6e6; padding: 10px; border-radius: 4px; list-style-type: none;">
