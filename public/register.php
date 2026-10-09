@@ -26,7 +26,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $success = '(((Platzhalter, Alles war erfolgreich)))';
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    
+    try {
+        $insertStmt = $pdo->prepare("INSERT INTO users (email, password_hash) VALUES (:email, :password_hash)");
+        $insertStmt->execute([
+            ':email' => $email,
+            ':password_hash' => $passwordHash
+        ]);
+        
+        $success = 'Registrierung erfolgreich! Du kannst dich jetzt einloggen.';
+        
+    } catch (PDOException $e) {
+        // Fehlercode 23000 = UNIQUE Constraint verletzt
+        if ($e->getCode() == 23000) {
+            $errors[] = 'Diese E-Mail-Adresse ist bereits registriert.';
+        } else {
+            $errors[] = 'Ein Datenbankfehler ist aufgetreten.';
+            error_log('Registrierungsfehler: ' . $e->getMessage());
+        }
+    }
     }
 }
 
