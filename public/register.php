@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Registrierung - Bewerbungs-Tracker</title>
 </head>
 <body>
@@ -69,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          ausgeführt werden können, Schutz vor XSS (Cross-Site-Scripting) -->
     <div id="messages">
         <?php if (!empty($errors)): ?>
-            <ul style="color: red; background: #ffe6e6; padding: 10px; border-radius: 4px; list-style-type: none;">
+            <ul>
                 <?php foreach ($errors as $error): ?>
                     <li><?php echo htmlspecialchars($error) ?></li>
                 <?php endforeach; ?>
@@ -77,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <?php if (!empty($success)): ?>
-            <p style="color: green; background: #e6ffe6; padding: 10px; border-radius: 4px;">
+            <p>
                 <?php echo htmlspecialchars($success) ?>
             </p>
         <?php endif; ?>
