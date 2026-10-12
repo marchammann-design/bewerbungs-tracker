@@ -1,5 +1,11 @@
 <?php
+require_once __DIR__ . '/../includes/session.php';
 require_once __DIR__ . '/../includes/db.php';
+
+if (isset($_SESSION['user_id'])) {
+    header('Location: dashboard.php');
+    exit;
+}
 
 $errors = [];
 $success = '';
@@ -21,13 +27,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Prepared Statement: Wir holen den User NUR anhand der E-Mail.
     // Niemals das Passwort im SQL-Query prüfen (Timing-Attacken)!
+    
     if (empty($errors)) {
         $stmt = $pdo->prepare("SELECT user_id, email, password_hash FROM users WHERE email = :email LIMIT 1");
         $stmt->execute([':email' => $email]);
         $user = $stmt->fetch();
 
+
         if ($user && password_verify($password, $user['password_hash'])) {
-            $success = 'Login erfolgreich! (Session wird gleich implementiert)';
+
+            //Neue Session wird generiert
+            //Daten des User werden in der Session gespeichert
+            //weiterleitung zum Dashboard und beenden des Scripts
+            
+            session_regenerate_id(true);
+
+            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['user_email'] = $user['email'];
+
+            header('Location: dashboard.php');
+            exit;
+
+
         } else {
             $errors[] = 'Ungültige Anmeldedaten';
         }
@@ -49,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>Login</h1>
 
     <div id="messages">
-            <div id="messages">
         <?php if (!empty($errors)): ?>
             <div class="alert alert-error">
                 <ul>
