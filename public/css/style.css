@@ -1,0 +1,156 @@
+/* public/css/style.css */
+
+:root {
+    /* Primärfarben (Mint/Grün) */
+    --color-primary: #0d9488;       /* Kräftiges Mint für Buttons (guter Kontrast auf Weiß) */
+    --color-primary-hover: #0f766e; /* Dunkleres Mint für Hover-Effekte */
+    --color-primary-light: #ccfbf1; /* Sehr helles Mint für Akzente */
+
+    /* Neutrale Farben */
+    --color-bg: #f8fafc;            /* Helles Grau-Weiß (lässt das Mint gut wirken) */
+    --color-surface: #ffffff;       /* Weiß für Karten und Formulare */
+    --color-text: #1e293b;          /* Dunkles Grau für Haupttext */
+    --color-text-muted: #64748b;    /* Mittleres Grau für Nebentext */
+    --color-border: #e2e8f0;        /* Helles Grau für Rahmen */
+
+    /* Semantische Farben */
+    --color-success: #16a34a;       
+    --color-success-bg: #dcfce7;
+    --color-error: #dc2626;         
+    --color-error-bg: #fee2e2;
+
+    /* Typografie & Abstände */
+    --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --radius: 6px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+}
+
+/* Basis-Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: var(--spacing-lg);
+}
+
+/* Links */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Alert-Klassen */
+.alert {
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid transparent;
+}
+.alert-error {
+    background-color: var(--color-error-bg);
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+.alert-success {
+    background-color: var(--color-success-bg);
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+/* Buttons */
+button, .btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+button:hover, .btn:hover {
+    background-color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+/* Löschen-Button */
+.btn-delete {
+    background: none;
+    color: var(--color-error);
+    text-decoration: underline;
+    padding: 0;
+}
+.btn-delete:hover {
+    color: #991b1b;
+    background: none;
+}
+
+/* Basis-Formular-Styles (Vorbereitung für Tag 11) */
+input, select, textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--color-primary-light);
+    border-color: var(--color-primary);
+}
+
+/* Header & Navigation */
+.site-header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+}
+
+.main-nav a {
+    margin-left: var(--spacing-md);
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
