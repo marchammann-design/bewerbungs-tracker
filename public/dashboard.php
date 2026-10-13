@@ -75,6 +75,7 @@ $applications = $stmt->fetchAll();
                             <td><?= htmlspecialchars($app['notes']) ?></td>
                                                         <td>
                                 <a href="edit.php?id=<?= (int)$app['application_id'] ?>">Bearbeiten</a>
+                                <a href="view.php?id=<?= (int)$app['application_id'] ?>">Details</a>
                                 
                                 <!-- Löschen-Formular (POST-Methode für Sicherheit) -->
                                 <form method="POST" action="delete.php" style="display:inline;" onsubmit="return confirm('Diese Bewerbung wirklich unwiderruflich löschen?');">
