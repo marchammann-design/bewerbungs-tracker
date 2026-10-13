@@ -61,8 +61,8 @@ $applications = $stmt->fetchAll();
                         <th>Firma</th>
                         <th>Position</th>
                         <th>Status</th>
-                        <th>Aktionen</th>
                         <th>Notizen</th>
+                        <th>Aktionen</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,9 +73,14 @@ $applications = $stmt->fetchAll();
                             <td><?= htmlspecialchars($app['position']) ?></td>
                             <td><?= htmlspecialchars($app['current_status']) ?></td>
                             <td><?= htmlspecialchars($app['notes']) ?></td>
-                            <td>
-                                <!-- ID wird als Integer gecastet, um XSS in der URL zu verhindern -->
+                                                        <td>
                                 <a href="edit.php?id=<?= (int)$app['application_id'] ?>">Bearbeiten</a>
+                                
+                                <!-- Löschen-Formular (POST-Methode für Sicherheit) -->
+                                <form method="POST" action="delete.php" style="display:inline;" onsubmit="return confirm('Diese Bewerbung wirklich unwiderruflich löschen?');">
+                                    <input type="hidden" name="id" value="<?= (int)$app['application_id'] ?>">
+                                    <button type="submit" class="btn-delete">Löschen</button>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>
