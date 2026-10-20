@@ -34,6 +34,12 @@
     padding: 0;
 }
 
+/* Verhindert horizontalen Scroll der gesamten Seite */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-family);
     background-color: var(--color-bg);
@@ -326,6 +332,23 @@ form button {
         background-color: var(--color-primary);
         color: white;
         text-decoration: none;
+    }
+
+    /* Tabellen-Wrapper: Strikt auf Bildschirmbreite begrenzt */
+    .table-wrapper {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: var(--spacing-md) 0;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius);
+    }
+    
+    .data-table {
+        min-width: 600px; /* Erzwingt Scrollen NUR innerhalb des Wrappers */
+        width: 100%;
+        margin: 0;
     }
 }
 
