@@ -475,6 +475,50 @@ form button {
         margin-top: 10pt;
     }
 
+
+    /* Status Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+}
+.badge-beworben { background-color: #e0f2fe; color: #0369a1; }
+.badge-pruefung { background-color: #fef3c7; color: #b45309; }
+.badge-absage   { background-color: #fee2e2; color: #b91c1c; }
+.badge-zusage   { background-color: #dcfce7; color: #15803d; }
+.badge-default  { background-color: #f1f5f9; color: #475569; }
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius);
+    margin-top: var(--spacing-lg);
+}
+
+.empty-state h3 {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md); /* Mehr Abstand unter der Überschrift */
+    font-size: 1.2rem;
+}
+
+.empty-state p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-lg); /* Mehr Abstand unter dem Text */
+    font-size: 1rem;
+}
+
+.empty-state .btn {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+}
+
 }
 
 

@@ -31,12 +31,14 @@ $stmt = $pdo->prepare("
 $stmt->execute([':user_id' => $user_id]);
 $applications = $stmt->fetchAll();
 
+// Helper-Funktionen laden (WICHTIG: Vor dem HTML-Output)
+require_once __DIR__ . '/../includes/functions.php';
+
 // Header einbinden (ab hier beginnt das HTML)
 require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <h2>Meine Bewerbungen</h2>
-
 
 <?php if (!empty($success_msg)): ?>
     <div class="alert alert-success">
@@ -45,7 +47,11 @@ require_once __DIR__ . '/../includes/header.php';
 <?php endif; ?>
 
 <?php if (empty($applications)): ?>
-    <p>Du hast noch keine Bewerbungen erfasst.</p>
+    <div class="empty-state">
+        <h3>Noch keine Bewerbungen vorhanden</h3>
+        <p>Starte jetzt, indem du deine erste Bewerbung anlegst.</p>
+        <a href="create.php" class="btn">Erste Bewerbung anlegen</a>
+    </div>
 <?php else: ?>
     <div class="table-wrapper">
         <table class="data-table">
@@ -64,7 +70,11 @@ require_once __DIR__ . '/../includes/header.php';
                         <td><?= htmlspecialchars($app['apply_date']) ?></td>
                         <td><?= htmlspecialchars($app['company']) ?></td>
                         <td><?= htmlspecialchars($app['position']) ?></td>
-                        <td><?= htmlspecialchars($app['current_status']) ?></td>
+                        <td>
+                            <span class="badge <?= getStatusBadgeClass($app['current_status']) ?>">
+                                <?= htmlspecialchars($app['current_status']) ?>
+                            </span>
+                        </td>
                         <td>
                             <a href="view.php?id=<?= (int)$app['application_id'] ?>">Details</a>
                             <a href="edit.php?id=<?= (int)$app['application_id'] ?>">Bearbeiten</a>
@@ -80,7 +90,4 @@ require_once __DIR__ . '/../includes/header.php';
     </div>
 <?php endif; ?>
 
-<?php
-// Footer einbinden
-require_once __DIR__ . '/../includes/footer.php';
-?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>
