@@ -475,6 +475,7 @@ form button {
         margin-top: 10pt;
     }
 
+}
 
     /* Status Badges */
 .badge {
@@ -486,6 +487,7 @@ form button {
     text-align: center;
     white-space: nowrap;
 }
+
 .badge-beworben { background-color: #e0f2fe; color: #0369a1; }
 .badge-pruefung { background-color: #fef3c7; color: #b45309; }
 .badge-absage   { background-color: #fee2e2; color: #b91c1c; }
@@ -519,6 +521,6 @@ form button {
     margin-top: var(--spacing-md);
 }
 
-}
+
 
 

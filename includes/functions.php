@@ -1,8 +1,11 @@
 <?php
 /**
  * Gibt die passende CSS-Klasse für einen Bewerbungsstatus zurück.
+ * 
+ * @param string $status Der aktuelle Bewerbungsstatus
+ * @return string Die CSS-Klasse für das Badge
  */
-function getStatusBadgeClass($status) {
+function getStatusBadgeClass(string $status): string {
     $status = strtolower($status);
     
     if (str_contains($status, 'absage') || str_contains($status, 'abgelehnt') || str_contains($status, 'geghostet')) {
