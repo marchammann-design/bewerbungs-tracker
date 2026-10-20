@@ -22,4 +22,4 @@ desktop.ini
 *.log
 
 # Environment-Variablen (falls später nötig)
-.env
+/public/test_db.php
