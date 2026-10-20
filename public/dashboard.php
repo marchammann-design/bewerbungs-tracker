@@ -35,18 +35,19 @@ $applications = $stmt->fetchAll();
 require_once __DIR__ . '/../includes/header.php';
 ?>
 
-    <h2>Meine Bewerbungen</h2>
-    <p><a href="create.php" class="btn">+ Neue Bewerbung anlegen</a></p>
+<h2>Meine Bewerbungen</h2>
 
-    <?php if (!empty($success_msg)): ?>
-        <div class="alert alert-success">
-            <p><?= htmlspecialchars($success_msg) ?></p>
-        </div>
-    <?php endif; ?>
 
-    <?php if (empty($applications)): ?>
-        <p>Du hast noch keine Bewerbungen erfasst.</p>
-    <?php else: ?>
+<?php if (!empty($success_msg)): ?>
+    <div class="alert alert-success">
+        <p><?= htmlspecialchars($success_msg) ?></p>
+    </div>
+<?php endif; ?>
+
+<?php if (empty($applications)): ?>
+    <p>Du hast noch keine Bewerbungen erfasst.</p>
+<?php else: ?>
+    <div class="table-wrapper">
         <table class="data-table">
             <thead>
                 <tr>
@@ -76,7 +77,8 @@ require_once __DIR__ . '/../includes/header.php';
                 <?php endforeach; ?>
             </tbody>
         </table>
-    <?php endif; ?>
+    </div>
+<?php endif; ?>
 
 <?php
 // Footer einbinden

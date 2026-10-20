@@ -10,10 +10,18 @@
 
     <header class="site-header">
         <div class="header-content">
-            <h1 class="logo">Bewerbungs-Tracker</h1>
+            <h1 class="logo"><a href="dashboard.php">Bewerbungs-Tracker</a></h1>
             
             <?php if (isset($_SESSION['user_id'])): ?>
-                <nav class="main-nav">
+                <!-- Burger Button (nur auf Mobile sichtbar) -->
+                <button class="burger-menu" id="burger-btn" aria-label="Menü öffnen">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Navigation -->
+                <nav class="main-nav" id="main-nav">
                     <a href="dashboard.php">Dashboard</a>
                     <a href="create.php">Neue Bewerbung</a>
                     <a href="stats.php">Statistik</a>
