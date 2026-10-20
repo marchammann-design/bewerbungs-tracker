@@ -521,6 +521,14 @@ form button {
     margin-top: var(--spacing-md);
 }
 
+/* Formular-Hinweise Passwort min Länge*/
+.form-hint {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: -12px; /* Zieht den Text näher an das Input-Feld */
+    margin-bottom: var(--spacing-md);
+}
+
 
 
 

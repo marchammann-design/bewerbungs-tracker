@@ -80,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <label for="password">Passwort:</label>
                 <input type="password" id="password" name="password" required autocomplete="new-password">
+                <p class="form-hint">Mindestens 8 Zeichen</p>
 
                 <button type="submit">Registrieren</button>
             </form>
