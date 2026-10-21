@@ -38,4 +38,4 @@ cd bewerbungs-tracker
 docker compose up -d
 
 # Browser öffnen
-# http://localhost
+# http://localhost:8082/
