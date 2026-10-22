@@ -10,7 +10,7 @@
 
     <header class="site-header">
         <div class="header-content">
-            <h1 class="logo"><a href="dashboard.php">Bewerbungs-Tracker v0.5</a></h1>
+            <h1 class="logo"><a href="dashboard.php">Bewerbungs-Tracker</a></h1>
             
             <?php if (isset($_SESSION['user_id'])): ?>
                 <!-- Burger Button (nur auf Mobile sichtbar) -->

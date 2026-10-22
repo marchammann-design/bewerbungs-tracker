@@ -13,7 +13,7 @@ services:
       - app-network
 
   php:
-    image: php:8.2-fpm-alpine
+    image: php:8.4-fpm-alpine 
     container_name: bewerbung_php
     volumes:
       - .:/var/www
