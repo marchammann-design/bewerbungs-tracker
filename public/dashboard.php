@@ -67,7 +67,7 @@ require_once __DIR__ . '/../includes/header.php';
             <tbody>
                 <?php foreach ($applications as $app): ?>
                     <tr>
-                        <td><?= htmlspecialchars($app['apply_date']) ?></td>
+                        <td><?= htmlspecialchars(date('d.m.Y', strtotime($app['apply_date'])), ENT_QUOTES, 'UTF-8') ?></td>
                         <td><?= htmlspecialchars($app['company']) ?></td>
                         <td><?= htmlspecialchars($app['position']) ?></td>
                         <td>

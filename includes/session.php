@@ -1,7 +1,5 @@
 <?php
 // Zentrale Session-Verwaltung
-// WICHTIG: Keine Leerzeilen vor diesem <?php Tag!
-
 if (session_status() === PHP_SESSION_NONE) {
     
     // 1. Internen Temp-Ordner des Containers nutzen (vermeidet Docker/WSL Rechte-Probleme)
