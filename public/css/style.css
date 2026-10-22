@@ -1,31 +1,31 @@
 /* public/css/style.css */
 
 :root {
-    /* Primärfarben (Mint/Grün) */
-    --color-primary: #0d9488;
-    /* Kräftiges Mint für Buttons (guter Kontrast auf Weiß) */
-    --color-primary-hover: #0f766e;
-    /* Dunkleres Mint für Hover-Effekte */
-    --color-primary-light: #ccfbf1;
-    /* Sehr helles Mint für Akzente */
+    /* Neue Farbpalette (wie angefordert) */
+    --palette-1: #C6D1D4;
+    --palette-2: #89B3DB;
+    --palette-3: #A79D9D;
+    --palette-4: #C38777;
+    --palette-5: #797977;
+    --palette-6: #46586C;
+
+    /* Primärfarben (funktional abgeleitet) */
+    --color-primary: var(--palette-6);       /* #46586C: Bester Kontrast für Buttons/Text */
+    --color-primary-hover: #354454;          /* Abgedunkeltes Palette-6 für Hover-Effekte */
+    --color-primary-light: var(--palette-1); /* #C6D1D4: Für leichte Akzente und Fokus */
 
     /* Neutrale Farben */
-    --color-bg: #f8fafc;
-    /* Helles Grau-Weiß (lässt das Mint gut wirken) */
-    --color-surface: #ffffff;
-    /* Weiß für Karten und Formulare */
-    --color-text: #1e293b;
-    /* Dunkles Grau für Haupttext */
-    --color-text-muted: #64748b;
-    /* Mittleres Grau für Nebentext */
-    --color-border: #e2e8f0;
-    /* Helles Grau für Rahmen */
+    --color-bg: #f4f6f8;                     /* Sehr helles Grau, harmoniert mit Palette-1 */
+    --color-surface: #ffffff;                /* Weiß für Karten und Formulare */
+    --color-text: var(--palette-6);          /* #46586C: Haupttext */
+    --color-text-muted: var(--palette-5);    /* #797977: Nebentext */
+    --color-border: var(--palette-1);        /* #C6D1D4: Rahmen */
 
-    /* Semantische Farben */
-    --color-success: #16a34a;
-    --color-success-bg: #dcfce7;
-    --color-error: #dc2626;
-    --color-error-bg: #fee2e2;
+    /* Semantische Farben (auf die Palette abgestimmt & barrierearm) */
+    --color-success: #3d6b5a;                /* Gedämpftes Grün, das zum Gesamtbild passt */
+    --color-success-bg: #e8f4f0;
+    --color-error: #8a5a4c;                  /* Abgedunkeltes Palette-4 für lesbaren Text */
+    --color-error-bg: rgba(195, 135, 119, 0.15); /* Helles Palette-4 für Hintergründe */
 
     /* Typografie & Abstände */
     --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -117,11 +117,11 @@ button:hover,
 }
 
 .btn-delete:hover {
-    color: #991b1b;
+    color: #6d463b; /* Noch dunklere Abstufung von Palette-4 für Hover */
     background: none;
 }
 
-/* Basis-Formular-Styles (Vorbereitung für Tag 11) */
+/* Basis-Formular-Styles */
 input,
 select,
 textarea {
@@ -295,7 +295,6 @@ form button {
     cursor: pointer;
     padding: 0;
     z-index: 100;
-    /* Sicherstellen, dass er über der Nav liegt */
 }
 
 .burger-menu span {
@@ -315,7 +314,6 @@ form button {
 
 .burger-menu.active span:nth-child(2) {
     opacity: 0;
-    /* Mittlerer Strich verschwindet */
 }
 
 .burger-menu.active span:nth-child(3) {
@@ -363,7 +361,6 @@ form button {
         text-decoration: none;
     }
 
-    /* Tabellen-Wrapper: Strikt auf Bildschirmbreite begrenzt */
     .table-wrapper {
         width: 100%;
         max-width: 100%;
@@ -376,7 +373,6 @@ form button {
 
     .data-table {
         min-width: 600px;
-        /* Erzwingt Scrollen NUR innerhalb des Wrappers */
         width: 100%;
         margin: 0;
     }
@@ -386,7 +382,6 @@ form button {
    PRINT CSS (Druckansicht / PDF-Export)
    ========================================= */
 @media print {
-    /* 1. UI-Elemente ausblenden */
     .site-header, 
     .site-footer, 
     .burger-menu, 
@@ -397,7 +392,6 @@ form button {
         display: none !important;
     }
 
-    /* 2. Basis-Layout für Papier (A4) */
     @page {
         size: A4;
         margin: 15mm;
@@ -406,7 +400,7 @@ form button {
     body {
         background: #ffffff;
         color: #000000;
-        font-size: 10pt; /* Etwas kleiner für mehr Platz */
+        font-size: 10pt;
         line-height: 1.3;
         margin: 0;
         padding: 0;
@@ -419,13 +413,11 @@ form button {
         padding: 0;
     }
 
-    /* Überschrift für Druck */
     h2 {
         font-size: 14pt;
         margin-bottom: 10pt;
     }
 
-    /* 3. Tabellen für Druck optimieren */
     .table-wrapper {
         overflow: visible;
         border: none;
@@ -435,9 +427,9 @@ form button {
     .data-table {
         width: 100% !important;
         border-collapse: collapse;
-        min-width: 0 !important; /* Mobile min-width aufheben */
+        min-width: 0 !important;
         box-shadow: none;
-        table-layout: fixed; /* Wichtig: Erzwingt feste Spaltenbreiten */
+        table-layout: fixed;
     }
 
     .data-table th, 
@@ -446,26 +438,23 @@ form button {
         padding: 3pt 4pt;
         color: #000000;
         font-size: 9pt;
-        word-wrap: break-word; /* Lange Wörter umbrechen */
+        word-wrap: break-word;
     }
 
-    /* Spalte "Aktionen" ausblenden (letzte Spalte) */
     .data-table th:last-child, 
     .data-table td:last-child {
         display: none !important;
     }
 
-    /* Spaltenbreiten für A4 optimieren */
     .data-table th:nth-child(1), 
-    .data-table td:nth-child(1) { width: 15%; } /* Datum */
+    .data-table td:nth-child(1) { width: 15%; }
     .data-table th:nth-child(2), 
-    .data-table td:nth-child(2) { width: 30%; } /* Firma */
+    .data-table td:nth-child(2) { width: 30%; }
     .data-table th:nth-child(3), 
-    .data-table td:nth-child(3) { width: 30%; } /* Position */
+    .data-table td:nth-child(3) { width: 30%; }
     .data-table th:nth-child(4), 
-    .data-table td:nth-child(4) { width: 25%; } /* Status */
+    .data-table td:nth-child(4) { width: 25%; }
 
-    /* 4. Seitenumbrüche steuern */
     tr, h2, h3, section {
         page-break-inside: avoid;
     }
@@ -474,25 +463,24 @@ form button {
         page-break-after: avoid;
         margin-top: 10pt;
     }
-
 }
 
-    /* Status Badges */
+/* Status Badges (an die neue Palette angepasst) */
 .badge {
     display: inline-block;
     padding: 4px 10px;
-    border-radius: 2px;
+    border-radius: var(--radius);
     font-size: 0.85rem;
     font-weight: 600;
     text-align: center;
     white-space: nowrap;
 }
 
-.badge-beworben { background-color: #e0f2fe; color: #0369a1; }
-.badge-pruefung { background-color: #fef3c7; color: #b45309; }
-.badge-absage   { background-color: #fee2e2; color: #b91c1c; }
-.badge-zusage   { background-color: #dcfce7; color: #15803d; }
-.badge-default  { background-color: #f1f5f9; color: #475569; }
+.badge-beworben { background-color: rgba(137, 179, 219, 0.25); color: var(--palette-6); } /* Palette-2 */
+.badge-pruefung { background-color: rgba(167, 157, 157, 0.25); color: #5a5252; } /* Palette-3 */
+.badge-absage   { background-color: rgba(195, 135, 119, 0.2); color: #8a5a4c; } /* Palette-4 */
+.badge-zusage   { background-color: rgba(61, 107, 90, 0.15); color: #2d5a4a; } /* Success-Farbe */
+.badge-default  { background-color: rgba(198, 209, 212, 0.3); color: var(--palette-5); } /* Palette-1 */
 
 /* Empty State */
 .empty-state {
@@ -506,13 +494,13 @@ form button {
 
 .empty-state h3 {
     color: var(--color-text-muted);
-    margin-bottom: var(--spacing-md); /* Mehr Abstand unter der Überschrift */
+    margin-bottom: var(--spacing-md);
     font-size: 1.2rem;
 }
 
 .empty-state p {
     color: var(--color-text-muted);
-    margin-bottom: var(--spacing-lg); /* Mehr Abstand unter dem Text */
+    margin-bottom: var(--spacing-lg);
     font-size: 1rem;
 }
 
@@ -525,10 +513,6 @@ form button {
 .form-hint {
     font-size: 0.75rem;
     color: var(--color-text-muted);
-    margin-top: -12px; /* Zieht den Text näher an das Input-Feld */
+    margin-top: -12px;
     margin-bottom: var(--spacing-md);
 }
-
-
-
-
