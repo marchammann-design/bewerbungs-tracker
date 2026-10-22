@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $success = 'Registrierung erfolgreich! Du kannst dich jetzt einloggen.';
             
         } catch (PDOException $e) {
-            if ($e->getCode() == 23000) {
+            if ($e->getCode() == 23000) {   //Integrity constraint violation
                 $errors[] = 'Diese E-Mail-Adresse ist bereits registriert.';
             } else {
                 $errors[] = 'Ein Datenbankfehler ist aufgetreten.';
