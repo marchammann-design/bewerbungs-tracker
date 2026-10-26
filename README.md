@@ -24,17 +24,20 @@ Webbasierte Anwendung zur Verwaltung, Historisierung und Visualisierung von Bewe
 
 ## Voraussetzungen
 
-- Docker Desktop (oder Docker Engine + Docker Compose)
-- Browser (Chrome, Firefox, Edge)
+- **Windows-Nutzer**: 
+  - WSL 2 (Windows Subsystem for Linux) muss installiert und aktiviert sein.
+  - Docker Desktop muss installiert sein, und die WSL 2-Integration muss in den Docker-Einstellungen aktiviert sein.
+- **Linux/macOS-Nutzer**: Docker Engine und Docker Compose müssen installiert sein.
+- Ein moderner Browser (Chrome, Firefox, Edge).
 
 ## Installation & Start
 
 ```bash
-# Repository klonen
+# Repository klonen (innerhalb von WSL oder nativem Linux/macOS)
 git clone https://github.com/marchammann-design/bewerbungs-tracker.git
 cd bewerbungs-tracker
 
-# Container starten
+# Container starten (erstellt die Datenbank beim ersten Aufruf automatisch)
 docker compose up -d
 
 # Browser öffnen
