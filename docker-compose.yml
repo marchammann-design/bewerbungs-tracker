@@ -13,8 +13,9 @@ services:
       - app-network
 
   php:
-    image: php:8.4-fpm-alpine 
+    image: php:8.4-fpm-alpine
     container_name: bewerbung_php
+    command: sh -c "mkdir -p /var/www/db && chmod -R 777 /var/www/db && php-fpm"
     volumes:
       - .:/var/www
     networks:
