@@ -53,6 +53,9 @@ require_once __DIR__ . '/../includes/header.php';
         <a href="create.php" class="btn">Erste Bewerbung anlegen</a>
     </div>
 <?php else: ?>
+    <div class="print-actions" style="display: flex; justify-content: flex-end; margin-bottom: var(--spacing-md);">
+        <button type="button" class="btn-print" onclick="window.print()">Tabelle drucken</button>
+    </div>
     <div class="table-wrapper">
         <table class="data-table">
             <thead>

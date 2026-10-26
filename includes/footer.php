@@ -1,7 +1,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; <?= date('Y') ?> Bewerbungs-Tracker by Hammann Marc</p>
+        <p>Bewerbungs-Tracker</p>
     </footer>
 
         <!-- Script für Burger-Menü -->
