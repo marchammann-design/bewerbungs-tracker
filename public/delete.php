@@ -21,9 +21,16 @@ if (!$app_id) {
 
 // 3. Ownership-Check: Prüfen, ob die Bewerbung dem User gehört
 // Wir nutzen hier ein SELECT, um sicherzugehen, bevor wir löschen.
+
+
+
+
 $stmt = $pdo->prepare("SELECT application_id FROM applications WHERE application_id = :id AND user_id = :user_id");
 $stmt->execute([':id' => $app_id, ':user_id' => $user_id]);
 $app = $stmt->fetch();
+
+
+
 
 if (!$app) {
     // Bewerbung existiert nicht oder gehört einem anderen User
